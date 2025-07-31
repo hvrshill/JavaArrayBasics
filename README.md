@@ -171,5 +171,53 @@ public class Solution {
         }
     }
 }
+###Q4
+Nick has been given a list of random numbers by his teacher. These numbers are marks of several students of his class. He is required to arranged the marks in increasing order and hence check whether the new arrangement of marks are successive in nature or not. You need to write a function such that it returns 1 if the complete arrangement consists of consecutive marks, otherwise return 0.
+
+Note
+If two students have the same marks, then after arranging them in increasing order, they will not be considered as consecutive.
+Input Format
+Integer N i.e., size of the array
+Integer array for elements of the array
+Constraints
+NA
+Output Format
+Return 1 if all the numbers are consecutive after arrangement, otherwise return 0.
+Sample Input 0
+6
+3 7 2 5 4 6
+Sample Output 0
+1
+Explanation 0
+After arranging the given numbers in increasing order, the array comes out to be as 2, 3, 4, 5, 6, 7.
+As all the numbers in the array are consecutive, therefore 1 is returned.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] marks = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            marks[i] = sc.nextInt();
+        }
+
+        Arrays.sort(marks);
+        boolean cons = true;
+
+        for (int i = 1; i < size; i++) {
+            if (marks[i] != marks[i - 1] + 1) {
+                cons = false;
+                break;
+            }
+        }
+
+        System.out.println(cons ? 1 : 0);
+    }
+}
 
 
