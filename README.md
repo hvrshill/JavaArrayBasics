@@ -148,23 +148,28 @@ Sample Output 0
 Explanation 0
 Here, A = (1,10,5,15). The pair with maximum sum would be 10 and 15, since they are the largest in the array of prices and their sum would be 25. Therefore, 25 is returned as the answer
 
-'''java
 import java.io.*;
 import java.util.*;
+
 public class Solution {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int numberOfDishes = sc.nextInt();
         int[] prices = new int[numberOfDishes];
-        for(int i = 0; i <numberOfDishes; i++){
-            int dishPrice = sc.nextInt();
-            prices[i] = dishPrice;
-            
+
+        if (numberOfDishes >= 2) {
+            for (int i = 0; i < numberOfDishes; i++) {
+                int dishPrice = sc.nextInt();
+                prices[i] = dishPrice;
+            }
+
+            Arrays.sort(prices);
+            System.out.println(prices[prices.length - 1] + prices[prices.length - 2]);
+        } else {
+            System.out.println(0);
         }
-        Arrays.sort(prices);
-        System.out.println(prices[prices.length-1]+prices[prices.length-2]);
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
     }
 }
+
 
