@@ -220,6 +220,7 @@ public class Solution {
     }
 }
 
+###Q5
 You are working on a number sequence puzzle. You have an array A, that is supposed to contain all the numbers from 1 to N, but you realize one number is missing. The array might have been shuffled, so the numbers are not in order. Your task is to find and return an integer value representing the missing number from the sequence.
 Input Format
 
@@ -275,4 +276,46 @@ public class Solution{
     }
 }
 
+###Q6
+Alice has a pair of magical shoes that allows her to climb 3 stairs at once. In the city, there are N houses whose roofs Alice wants to reach. The number of stairs to the roof of each house is given in an array A. Alice can reach the roofs of only those houses where the number of stairs is a multiple of 3. Your task is to find and return an integer value representing the count of the number of houses whose roof Alice can climb up to.
+Input Format
+An integer value N representing the number of houses.
+An integer array A representing the number of stairs in each hous
+Constraints
+NA
+Output Format
 
+Return an integer value representing the count of the number of houses whose roofs Alice can climb up to.
+Sample Input 0
+
+4  
+12 21 3 4  
+Sample Output 0
+
+3
+Explanation 0
+
+Here, the given array is (12,21,3,4). There is only one house, (the 4th), whose roof Alice cannot go up to as it is not a multiple of 3. Therefore, 3 is returned as the output.
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int op = 0;
+        int houses = sc.nextInt();
+        int[] houseStairs = new int[houses];
+        for(int i=0; i<houses;i++){
+            houseStairs[i] = sc.nextInt();
+        }
+        
+        for(int i =0; i < houses ;i++){
+            if(houseStairs[i]%3==0){
+                op+=1;
+            }
+        }
+        System.out.println(op);
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
