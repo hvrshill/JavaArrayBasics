@@ -220,4 +220,59 @@ public class Solution {
     }
 }
 
+You are working on a number sequence puzzle. You have an array A, that is supposed to contain all the numbers from 1 to N, but you realize one number is missing. The array might have been shuffled, so the numbers are not in order. Your task is to find and return an integer value representing the missing number from the sequence.
+Input Format
+
+An integer value N representing the length of the sequence
+An integer array A
+
+Constraints
+NA
+Output Format
+
+Return an integer value representing the missing number from the sequence.
+Sample Input 0
+
+5  
+3 1 2 5  
+Sample Output 0
+4
+import java.io.*;
+import java.util.*;
+
+public class Solution{
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int size  =  sc.nextInt();
+        int Missing = 0;
+        int[] s = new int[size - 1]; 
+        for(int i = 0; i < size - 1; i++){ 
+            s[i] = sc.nextInt();
+        }
+        Arrays.sort(s);
+
+        
+        
+        for(int i = 0; i < s.length - 1; i++){ // Iterate up to s.length - 1
+            if(s[i+1] - s[i] != 1){ // Compare s[i+1] with s[i]
+               Missing = s[i];
+                break;
+            }
+        }
+        
+        // Handle the case where the missing number is the last element
+        if (Missing == 0 && s.length > 0 && s[s.length-1] != size) { // Check if 'Missing' was not updated (meaning missing is the last element)
+            Missing = s[s.length-1]; 
+            System.out.println(Missing + 1); // If the missing number is 'size', print 'size'
+        } else if (Missing != 0) {
+            System.out.println(Missing + 1); // Print the missing number if found
+        } else {
+             // Handle cases like a single element or a complete sequence without any missing elements
+            System.out.println(1); // If no gaps and no missing number after the largest element, assume 1 is missing, or
+            // Adjust logic based on your problem statement for edge cases
+        }
+    }
+}
+
 
