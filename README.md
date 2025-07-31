@@ -66,3 +66,71 @@ public class Solution {
 }
 
 '''
+Charles is given an array A. He wants to find the count of occurrence of second largest element in the array. Your task is to help him find and return an integer value representing the count of occurrence of the second largest element in an array.
+Note
+If the array contains the same elements, then return 0
+The array has only consecutive elements
+
+Input Format
+An integer N, representing length of array.
+An integer array A
+Constraints
+
+NA
+
+Output Format
+Return an integer value representing the count of occurrence of the second largest element in an array.
+Sample Input 0
+
+8
+1 2 3 4 4 5 5 5
+Sample Output 0
+
+2
+
+'''java
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l = sc.nextInt();
+        int[] nList = new int[l];
+        int sum = 0;
+
+        for (int i = 0; i < l; i++) {
+            int prod = sc.nextInt();
+            nList[i] = prod;
+        }
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        // Find largest
+        for (int i = 0; i < l; i++) {
+            if (nList[i] > largest) {
+                largest = nList[i];
+            }
+        }
+
+        // Find second largest (less than the largest)
+        for (int i = 0; i < l; i++) {
+            if (nList[i] > secondLargest && nList[i] < largest) {
+                secondLargest = nList[i];
+            }
+        }
+
+        for (int i = 0; i < nList.length; i++) {
+            if (secondLargest == nList[i]) {
+                sum += 1;
+            }
+            }
+        
+
+        System.out.println(sum);
+    }
+}
+
+'''
